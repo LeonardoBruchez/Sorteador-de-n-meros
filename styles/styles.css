@@ -1,0 +1,204 @@
+main {
+  width: 24.375rem;
+  margin: auto;
+  font-family: var(--RobotoFlex);
+  color: white;
+  padding-inline: 2.1875rem;
+}
+nav{
+  display: flex;
+  align-items: center;
+  gap: 0.6875rem;
+  justify-content: center;
+
+  & h2 {
+    font: 800 1.5rem/var(--font130percent) var(--SoraFont);
+  }
+}
+
+article {
+  margin-top: var(--padding-sm-y);
+}
+  header{
+    padding-bottom: var(--padding-sm-y);
+  & span {
+    background: linear-gradient(to right,var(--cnt-secondary),var(--bg-gray));
+    -webkit-background-clip:text;
+    background-clip: text;
+    color: transparent;
+    font: 700 1rem/var(--font150percent) var(--RobotoMono);
+  }
+  & h1 {
+    font: 800 2.5rem/var(--font130percent) var(--SoraFont); 
+  }
+}
+
+
+.article-wrapper > section{
+  margin-bottom: 5rem;
+  
+  & > .draw-introduction{
+    & h3{
+      color: var(--cnt-primary);
+      font: 700 1.25rem/var(--font150percent) var(--RobotoFlex);
+    }
+
+    & p {
+      color: var(--cnt-tertiary);
+      /* font: 500 0.875rem/var(--font150percent) var(--RobotoFlex); */
+    }
+  }
+
+  & > .numbers-wrapper {
+    display: flex;
+    gap: 0.75rem;
+    & #numbersInput{
+      display: grid;
+      margin-top: 2.5rem;
+      width: 5.375rem;
+      height: 5.5rem;
+      gap: 0.5rem;
+
+      & span {
+        font: 700 1rem/var(--font150percent var(--RobotoFlex));
+        text-align: center;
+      }
+
+      & input{
+        width: 5.375rem;
+        height: 3.5rem;
+        font: 700 2rem/var(--font150percent) var(--SoraFont);
+        text-align: center;
+        background-color: var(--bg-secondary);
+        border: none;
+        border-radius: 0.5rem;
+        color: var(--cnt-primary);
+      }
+    }
+  }
+
+
+  
+}
+
+
+.Faq{
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2.25rem;
+  align-items: flex-start;
+  & > img {
+    width: 2.25rem;
+    
+  }
+  & > div{
+    display: grid;
+    grid-auto-flow: row;
+    gap: 0.5rem;
+    margin-right: auto;
+    
+    & h3 {
+      color: var(--bg-brand);
+      font: 600 0.875rem/var(--font150percent) var(--RobotoFlex);
+    }
+  }
+  & p {
+    font: 600 0.75rem/var(--font150percent) var(--RobotoFlex);
+  }
+  
+  
+}
+
+@media(max-width: 83.999rem){
+  .article-wrapper > section{
+    & .alternateButton-MOBILE{
+    display: flex;
+    gap: 0.5rem;
+    margin-block: 1.25rem 2.5rem;
+  }
+  }
+}
+
+@media(width >= 57rem){
+  main {
+    width: 56rem;
+  }
+
+  nav {
+    justify-content: flex-start;
+  }
+  .alternateButton{
+    display: flex;
+    gap: 0.5rem;
+    margin-block: 1.25rem 2.5rem;
+  }
+}
+
+@media(min-width: 84rem){
+  main {
+    width: 70rem;
+    padding-inline: 3.375rem;
+  }
+
+  main > article{
+    & > .article-wrapper{
+      margin: auto;
+      display: flex;
+      gap: 6.75rem;
+      width: 1098px;
+      & header{
+        padding-bottom: 0;
+        & h1 {
+          font: 800 4.5rem/var(--font130percent) var(--SoraFont);
+        }
+      }
+
+      
+    }
+  }
+  .article-wrapper > section{ 
+    margin-top: 2.12rem;
+    margin-bottom: 0;
+
+    & > .draw-introduction{
+      width: 29rem;
+      & p {
+        font: 500 1rem/var(--font150percent) var(--RobotoFlex);
+      }
+    }
+    & > .numbers-wrapper{
+      display: flex;
+      gap: 0.75rem;
+    }
+  }
+  aside {
+    display: flex;
+    gap: 6.75rem;
+    justify-content: space-between;   
+  }
+
+  .Faq-wrapper > .Faq{
+    width: 32.875rem;
+    & p {
+      width: 24.125rem;
+    }
+  }
+
+  .alternateButton-DESKTOP{
+  display: flex;
+  gap: 0.5rem;
+  margin-block: 1.25rem 2.5rem;
+  }
+  
+  aside > .buttons-wrapper{
+    width: 29rem;
+    & .alternateButton{
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    & button[type="submit"] {
+      width: 29rem;
+    }
+  }
+}

@@ -1,0 +1,53 @@
+*,*::after,*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root{
+/* colors */
+--cnt-primary:#FFFFFF;
+--cnt-secondary:#C7C9CC;
+--cnt-tertiary:#D9D9D9;
+--cnt-brand:#C58DE7;
+--color-inverse:#030203;
+--bg-primary:#020202;
+--bg-secondary:#111012;
+--bg-tertiary:#24222E;
+--bg-brand:#C58DE7;
+--bg-gray:#3D3D3D;
+--accent-pink:#D586E0;
+--accent-blue:#91A1FA;
+--accent-green:#77C0AF;
+--accent-lime:#D1DC97;
+--accent-red:#E9A9B3;
+
+/* Fonts*/
+--RobotoFlex:"Roboto Flex", sans-serif;
+--RobotoMono:"Roboto Mono", monospace;
+--SoraFont:"Sora", sans-serif;
+--font130percent:130%;
+--font150percent:150%;
+
+/* Padding */
+--padding-sm-y:2.75rem;
+
+
+}
+
+body {
+  background-color: black;
+  color: white;
+  background-image: linear-gradient(to top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.7) 50%, black 85%), url('../assets/Linha.png');
+  background-repeat: repeat;
+  background-position: center;
+  background-size: auto;
+  min-height: 100vh;
+}
+@media(width >= 57rem){
+  :root{
+    /* Padding */
+  --padding-sm-y:4.75rem;
+  --padding-md-y:9.5625rem; 
+  }
+}

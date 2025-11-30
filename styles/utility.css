@@ -1,0 +1,298 @@
+.NumberField{
+  width: 5.375rem;
+  height: 3.5rem;
+  border-radius: 0.5rem;
+  background-color: var(--bg-secondary);
+  font: 700 2rem/var(--font150percent) var(--SoraFont);
+  color: var(--cnt-primary);
+  display: grid;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  border: 0;
+
+  --border-gradient: linear-gradient(90deg,var(--accent-green),var(--accent-lime),var(--accent-red),var(--accent-pink),var(--accent-blue));
+  
+  & p{
+    align-self: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover{
+    background: var(--border-gradient);
+    
+    &::before{
+      inset: 1px;
+      background-color: var(--bg-tertiary);
+    }
+  }
+
+  &:active{
+    background: var(--border-gradient);
+    
+    &::before{
+      inset: 2px;
+      background-color: var(--bg-tertiary);
+    }
+  }
+
+  &::before{
+    content: "";
+    position: absolute;
+    border-radius: inherit;
+    inset: 2px;
+    background-color: var(--bg-secondary);
+    z-index: 0;
+    transition: all 0.3s;
+  }
+}
+
+.padding-top-sm{
+  padding-top:  var(--padding-sm-y);
+}
+
+.padding-bottom-sm{
+  padding-bottom: var(--padding-sm-y);
+}
+
+.padding-inline{
+  padding-inline: var(--padding-sm-x);
+}
+
+.grid {
+  display: grid;
+}
+.hidden {
+  display: none !important;
+}
+
+& .noRepeatNumber{
+  background: linear-gradient(to right, var(--accent-pink), var(--accent-blue));
+    display: block;
+    width: 1.875rem;
+    height: 1.25rem;
+    border-radius: 1rem;
+    position: relative;
+    cursor: pointer;
+    transition: background-position 0.3s;
+  &::before{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    width: 0.875rem;
+    height: 0.875rem;
+    display: block;
+    bottom: 16%;
+    left: 10%; 
+    transition: transform 0.3s;
+  }
+}
+
+& .RepeatNumber{
+  background: linear-gradient(to right,var(--accent-pink),var(--accent-blue));
+  display: block;
+  width: 1.875rem;
+  height: 1.25rem;
+  border-radius: 1rem;
+  position: relative;
+  cursor: pointer;
+  &::before{
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    width: 0.875rem;
+    height: 0.875rem;
+    display: grid;
+    bottom: 16%;
+    left: 10%; 
+  }
+}
+
+.alternateButton-MOBILE.active .noRepeatNumber::before,
+.alternateButton-DESKTOP.active .noRepeatNumber::before{
+  transform: translateX(0.6rem);
+}
+
+.alternateButton-MOBILE.active .noRepeatNumber,
+.alternateButton-DESKTOP.active .noRepeatNumber {
+    background: linear-gradient(to left, var(--accent-blue), var(--accent-pink));
+}
+
+#resultArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-block: 5rem 0rem;
+}
+
+.numbers-display {
+  display: flex;
+  gap: 2.5rem; 
+  justify-content: center;
+}
+
+.sorted_number {
+  color: var(--cnt-primary);
+  font: 800 6rem/130% var(--SoraFont); 
+  line-height: 1; 
+}
+
+.sortear-novamente-btn {
+  background-color: var(--bg-tertiary);
+  border: none;
+  border-radius: 0.5rem;
+  width: 19.9375rem; 
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  
+  & span {
+      font: 700 1rem/var(--font150percent) var(--RobotoFlex);
+      color:var(--cnt-primary) ;
+  }
+}
+
+.number-slot {
+  position: relative;
+  width: 6rem;
+  height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.purple-spinner {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: var(--accent-purple, #8A2BE2);
+  border-radius: 0.5rem; 
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  z-index: 1;
+}
+
+.purple-spinner.active {
+  opacity: 1; 
+  transform: scale(1);
+  animation: spin-slowly 1s linear infinite; /* Animação de giro */
+}
+
+.purple-spinner.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease-out; 
+}
+
+.number-display {
+  position: relative; 
+  font: 700 3rem/1 var(--SoraFont); 
+  color: var(--cnt-brand);
+  line-height: 1;
+  opacity: 0; 
+  transition: opacity 0.3s ease-in-out;
+  z-index: 2; 
+}
+
+.number-display.visible {
+  opacity: 1; 
+}
+
+@keyframes spin-slowly {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 83.999rem){
+  .onlyDesktop{
+    display: none;
+    width: 0px;
+    height: 0px;
+    background-color: none;
+    opacity: 0;
+  }
+
+  .onlyMobile{
+    display: initial;
+  }
+
+  button[type="submit"].onlyMobile{
+  background-color: var(--bg-tertiary);
+  border: none;
+  border-radius: 0.5rem;
+  width: 19.9375rem;
+  height: 3.5rem;
+  font: 700 1rem/var(--font150percent) var(--RobotoFlex);
+  color:var(--cnt-primary) ;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+}
+
+@media (min-width: 84rem){
+  .padding-top-sm{
+    padding-top:  var(--padding-sm-y);
+  }
+
+  .padding-bottom-md{
+    padding-bottom: var(--padding-md-y);
+  }
+
+  .padding-inline{
+  padding-inline: var(--padding-sm-x);
+  }
+
+  .onlyDesktop{
+    width: initial;
+    height: initial;
+    background-color: initial;
+    opacity: initial;
+  }
+
+  .onlyMobile{
+    display: none; 
+    width: 0px;
+    height: 0px;
+    background-color: none;
+    
+  }
+
+  .sortear-novamente-btn {
+    width: 29rem;
+  }
+}
+
+button[type="submit"].onlyDesktop{
+  background-color: var(--bg-tertiary);
+  border: none;
+  border-radius: 0.5rem;
+  width: 19.9375rem;
+  height: 3.5rem;
+  font: 700 1rem/var(--font150percent) var(--RobotoFlex);
+  color:var(--cnt-primary) ;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
